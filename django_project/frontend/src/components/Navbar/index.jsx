@@ -30,6 +30,7 @@ import { HelpCenter } from "../HelpCenter";
 import NotificationBadge from "../NotificationBadge";
 import NotificationMaintenance from "../NotificationMaintenance";
 import LanguageSelector from "../LanguageSelector";
+import { useTheme } from "../../providers/ThemeContext";
 
 import "./style.scss";
 
@@ -81,6 +82,24 @@ export function GeoRepoIndicator() {
   );
 }
 
+/** Sun icon for light mode */
+function SunIcon() {
+  return (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7zm0-5a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 16a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zM3 11h2a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zm16 0h2a1 1 0 0 1 0 2h-2a1 1 0 0 1 0-2zM5.636 4.222a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 1 1-1.414 1.414L5.636 5.636a1 1 0 0 1 0-1.414zm12.728 0a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM7.05 17.364a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zm9.9 0a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414z"/>
+    </svg>
+  );
+}
+
+/** Moon icon for dark mode */
+function MoonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+    </svg>
+  );
+}
+
 export default function NavBar({ minified }) {
   const helpPageRef = useRef(null);
   const { icon, small_icon, site_title, site_type } = preferences;
@@ -89,6 +108,7 @@ export default function NavBar({ minified }) {
     (state) => state.dashboard?.data?.user_permission,
   );
   const { t, i18n } = useTranslation();
+  const { colorMode, toggleColorMode } = useTheme();
 
   // Set width of logo
   // Not working using css on firefox
@@ -201,6 +221,14 @@ export default function NavBar({ minified }) {
               <HelpIcon />
             </a>
           </div>
+          <button
+            className="DarkModeToggle SvgButton"
+            onClick={toggleColorMode}
+            title={colorMode === 'dark' ? t('Switch to light mode') : t('Switch to dark mode')}
+            aria-label={colorMode === 'dark' ? t('Switch to light mode') : t('Switch to dark mode')}
+          >
+            {colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </button>
           <User />
         </div>
       </header>

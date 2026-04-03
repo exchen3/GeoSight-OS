@@ -21,8 +21,10 @@ import NavBar from '../components/Navbar';
 import { EmbedConfig } from "../utils/embed";
 import { urlParams } from "../utils/main";
 import { ConfirmDialogProvider } from "../providers/ConfirmDialog";
+import { ThemeProvider } from "../providers/ThemeContext";
 
 import './app.scss';
+import './dark-mode.scss';
 import './mui.scss';
 import './form.scss';
 import './form.small.scss';
@@ -72,9 +74,11 @@ export function render(App, store) {
   const root = createRoot(document.getElementById('app'));
   root.render(
     <Provider store={store}>
-      <ConfirmDialogProvider>
-        <App />
-      </ConfirmDialogProvider>
+      <ThemeProvider>
+        <ConfirmDialogProvider>
+          <App />
+        </ConfirmDialogProvider>
+      </ThemeProvider>
     </Provider>
   )
 }

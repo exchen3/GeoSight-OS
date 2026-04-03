@@ -148,6 +148,69 @@
           background-color: var(--tertiary-color) !important;
           color: var(--anti-tertiary-color) !important;
         }
+
+        /* ======================================================
+           DARK MODE — override surface & neutral tokens only.
+           Brand colors (primary/secondary/tertiary) are kept so
+           that the site identity stays consistent in dark mode.
+           ====================================================== */
+        [data-color-mode="dark"] {
+          color-scheme: dark;
+
+          /* Neutral surfaces */
+          --white: #1e2130;
+          --white-transparent: #1e2130BB;
+          --base-to-white-color: #161926;
+          --base-almost-white-color: #1a1e2e;
+          --base-almost-gray-color: #2d3348;
+
+          /* Text */
+          --base-black: rgba(220, 225, 240, 0.87);
+          --base-black-color: rgba(220, 225, 240, 0.87);
+          --base-placeholder-color: rgba(220, 225, 240, 0.5);
+          --svg-gray: rgba(220, 225, 240, 0.6);
+          --black: #e0e6f0;
+
+          /* Borders */
+          --border: 1px solid rgba(255, 255, 255, 0.12);
+          --border-gray: #2d3348;
+
+          /* Tabs */
+          --tab-inactive-color: #4a5068;
+          --tab-active-color: #dde3f0;
+
+          /* Disabled / transparency */
+          --disabled-color: #3a3f54;
+          --primary-color-transparency: rgba(28, 171, 226, 0.12);
+          --base-alpha-color: rgba(28, 171, 226, 0.08);
+          --base-gray: rgba(80, 90, 120, 0.4);
+          --base-gray-to-white: rgba(80, 90, 120, 0.2);
+
+          /* Gray scale — inverted so gray-100 is darkest surface */
+          --gray-100: #161926;
+          --gray-200: #1a1e2e;
+          --gray-300: #222638;
+          --gray-400: #2d3348;
+          --gray-500: #3e455e;
+          --gray-600: #6b7494;
+          --gray-700: #8e9ab8;
+          --gray-800: #b8c2da;
+          --gray-900: #dde3f0;
+
+          /* Shadows — subtler on dark bg */
+          --base-shadow-box: 0 0 16px 4px rgba(0, 0, 0, 0.45);
+          --box-shadow: 0 .1rem 1rem rgba(0, 0, 0, .5);
+          --box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .3);
+          --box-shadow-sm-strong: 0 .125rem .25rem rgba(0, 0, 0, .45);
+          --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .55);
+          --box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, .25);
+
+          /* Widget title */
+          --widget-title: rgba(220, 225, 240, 0.87);
+
+          /* Map legend */
+          --map-legend-label-color: rgba(220, 225, 240, 0.87) !important;
+        }
     </style>
     {% block style %}
     {% endblock %}

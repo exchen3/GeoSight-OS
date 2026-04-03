@@ -1,0 +1,476 @@
+/**
+ * GeoSight is UNICEF's geospatial web-based business intelligence platform.
+ *
+ * Contact : geosight-no-reply@unicef.org
+ *
+ * .. note:: This program is free software; you can redistribute it and/or modify
+ *     it under the terms of the GNU Affero General Public License as published by
+ *     the Free Software Foundation; either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ * __author__ = 'unicef'
+ * __date__ = '28/03/2026'
+ * __copyright__ = ('Copyright 2026, Unicef')
+ */
+
+/* ==========================================================================
+   Dark Mode — component overrides
+   All rules are scoped to [data-color-mode="dark"] on <html> so they only
+   apply when dark mode is active.  CSS variable overrides live in base.html.
+   ========================================================================== */
+
+[data-color-mode="dark"] {
+  /* ── Body & page shell ─────────────────────────────────────────────── */
+  body {
+    background-color: var(--base-to-white-color);
+    color: var(--base-black);
+  }
+
+  /* ── Scrollbar ─────────────────────────────────────────────────────── */
+  ::-webkit-scrollbar-track {
+    background: var(--gray-200);
+  }
+
+  /* ── Generic surfaces ──────────────────────────────────────────────── */
+  .page {
+    background-color: var(--base-to-white-color);
+  }
+
+  main {
+    background-color: var(--base-to-white-color);
+  }
+
+  /* ── Cards / panels / modals ───────────────────────────────────────── */
+  .MuiPaper-root,
+  .MuiCard-root,
+  .MuiDialog-paper,
+  .MuiPopover-paper,
+  .MuiMenu-paper,
+  .MuiDrawer-paper,
+  .MuiTooltip-tooltip {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+  }
+
+  .MuiTooltip-tooltip {
+    background-color: var(--gray-400) !important;
+  }
+
+  /* ── MUI inputs & selects ──────────────────────────────────────────── */
+  .MuiInputBase-root,
+  .MuiOutlinedInput-root,
+  .MuiFilledInput-root {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+
+    .MuiOutlinedInput-notchedOutline {
+      border-color: var(--border-gray) !important;
+    }
+
+    &:hover .MuiOutlinedInput-notchedOutline {
+      border-color: var(--primary-color) !important;
+    }
+
+    input,
+    textarea {
+      color: var(--base-black) !important;
+    }
+  }
+
+  .MuiInputLabel-root {
+    color: var(--base-placeholder-color) !important;
+  }
+
+  .MuiSelect-select {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── MUI list items ────────────────────────────────────────────────── */
+  .MuiListItem-root,
+  .MuiMenuItem-root {
+    color: var(--base-black) !important;
+
+    &:hover,
+    &.Mui-selected {
+      background-color: var(--gray-400) !important;
+    }
+  }
+
+  /* ── MUI table ─────────────────────────────────────────────────────── */
+  .MuiTableHead-root .MuiTableCell-root {
+    background-color: var(--gray-400) !important;
+    color: var(--base-black) !important;
+    border-bottom-color: var(--border-gray) !important;
+  }
+
+  .MuiTableBody-root .MuiTableRow-root {
+    background-color: var(--gray-200) !important;
+    color: var(--base-black) !important;
+
+    &:nth-child(even) {
+      background-color: var(--gray-300) !important;
+    }
+
+    &:hover {
+      background-color: var(--gray-400) !important;
+    }
+
+    .MuiTableCell-root {
+      color: var(--base-black) !important;
+      border-bottom-color: var(--border-gray) !important;
+    }
+  }
+
+  /* MUI DataGrid */
+  .MuiDataGrid-root {
+    background-color: var(--gray-200) !important;
+    color: var(--base-black) !important;
+    border-color: var(--border-gray) !important;
+
+    .MuiDataGrid-columnHeaders {
+      background-color: var(--gray-400) !important;
+      color: var(--base-black) !important;
+      border-bottom-color: var(--border-gray) !important;
+    }
+
+    .MuiDataGrid-row {
+      &:hover {
+        background-color: var(--gray-400) !important;
+      }
+      &.Mui-selected {
+        background-color: var(--primary-color-transparency) !important;
+      }
+    }
+
+    .MuiDataGrid-cell {
+      border-bottom-color: var(--border-gray) !important;
+      color: var(--base-black) !important;
+    }
+
+    .MuiDataGrid-footerContainer {
+      background-color: var(--gray-300) !important;
+      border-top-color: var(--border-gray) !important;
+    }
+  }
+
+  /* ── MUI Tabs ──────────────────────────────────────────────────────── */
+  .MuiTab-root {
+    color: var(--tab-inactive-color) !important;
+
+    &.Mui-selected {
+      color: var(--tab-active-color) !important;
+    }
+  }
+
+  .MuiTabs-indicator {
+    background-color: var(--primary-color) !important;
+  }
+
+  /* ── MUI Divider ───────────────────────────────────────────────────── */
+  .MuiDivider-root {
+    border-color: var(--border-gray) !important;
+  }
+
+  /* ── MUI Chip ──────────────────────────────────────────────────────── */
+  .MuiChip-root {
+    background-color: var(--gray-400) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── MUI Switch ────────────────────────────────────────────────────── */
+  .MuiSwitch-track {
+    background-color: var(--gray-500) !important;
+  }
+
+  /* ── Sidebar / left panels ─────────────────────────────────────────── */
+  .LeftPanel,
+  .SidePanel,
+  .AdminContent,
+  .AdminLeftPanel,
+  .AdminList,
+  .Dashboard__Left,
+  .AdminForm {
+    background-color: var(--gray-200) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── Dashboard widgets ─────────────────────────────────────────────── */
+  .Widget,
+  .widget-content,
+  .DashboardWidget {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── Map popup ─────────────────────────────────────────────────────── */
+  .maplibregl-popup-content-wrapper {
+    background: var(--gray-300) !important;
+    color: var(--base-black) !important;
+    box-shadow: var(--box-shadow) !important;
+
+    .header {
+      background-color: var(--gray-400) !important;
+    }
+  }
+
+  .maplibregl-popup-content {
+    background: unset !important;
+  }
+
+  /* ── Map controls (maplibre/mapbox) ────────────────────────────────── */
+  .maplibregl-ctrl-group,
+  .mapboxgl-ctrl-group {
+    background-color: var(--gray-300) !important;
+
+    button {
+      background-color: var(--gray-300) !important;
+      color: var(--base-black) !important;
+
+      &:hover {
+        background-color: var(--gray-400) !important;
+      }
+    }
+  }
+
+  .maplibregl-ctrl-attrib {
+    background-color: rgba(30, 33, 48, 0.75) !important;
+    color: var(--base-black) !important;
+
+    a {
+      color: var(--primary-color) !important;
+    }
+  }
+
+  /* ── Generic form controls ─────────────────────────────────────────── */
+  input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+    border-color: var(--border-gray) !important;
+
+    &::placeholder {
+      color: var(--base-placeholder-color) !important;
+    }
+  }
+
+  /* ── Buttons (non-brand) ────────────────────────────────────────────── */
+  button.MuiButton-outlined {
+    border-color: var(--border-gray) !important;
+    color: var(--base-black) !important;
+
+    &:hover {
+      background-color: var(--gray-400) !important;
+    }
+  }
+
+  button.MuiButton-text {
+    color: var(--base-black) !important;
+  }
+
+  /* ── React-Select ──────────────────────────────────────────────────── */
+  .react-select__control {
+    background-color: var(--gray-300) !important;
+    border-color: var(--border-gray) !important;
+    color: var(--base-black) !important;
+  }
+
+  .react-select__menu {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+  }
+
+  .react-select__option {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+
+    &--is-focused,
+    &--is-selected {
+      background-color: var(--gray-400) !important;
+    }
+  }
+
+  .react-select__single-value,
+  .react-select__input,
+  .react-select__placeholder {
+    color: var(--base-black) !important;
+  }
+
+  /* ── Admin pages ───────────────────────────────────────────────────── */
+  .AdminPage {
+    background-color: var(--base-to-white-color) !important;
+  }
+
+  .TableWrapper,
+  .AdminTable {
+    background-color: var(--gray-200) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── Modal / dialog backdrops ──────────────────────────────────────── */
+  .MuiBackdrop-root {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  /* ── Accordion ─────────────────────────────────────────────────────── */
+  .MuiAccordion-root {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+
+    &::before {
+      background-color: var(--border-gray) !important;
+    }
+  }
+
+  /* ── Skeleton loaders ───────────────────────────────────────────────── */
+  .MuiSkeleton-root {
+    background-color: var(--gray-400) !important;
+  }
+
+  /* ── Home / Landing page ────────────────────────────────────────────── */
+  /* The Home page has a hardcoded background-color: white on .HomePageContent */
+  .PageContent .HomePageContent {
+    background-color: var(--gray-200) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* Project grid cards */
+  .ProjectGrid {
+    background-color: var(--gray-300) !important;
+
+    .ProjectGridIcon {
+      border-color: var(--gray-400) !important;
+    }
+
+    .ProjectGridName {
+      color: var(--base-black) !important;
+    }
+
+    /* Tag pills inside project cards have hardcoded white */
+    .ProjectGridTags {
+      background-color: var(--gray-300) !important;
+
+      div {
+        background-color: var(--gray-400) !important;
+        color: var(--primary-color) !important;
+      }
+    }
+
+    .ProjectGridDescription {
+      background-color: var(--gray-300) !important;
+      color: var(--gray-700) !important;
+
+      .wmde-markdown {
+        color: var(--gray-700) !important;
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  /* Show-banner button (hardcoded white) */
+  .ShowBanner {
+    background-color: var(--gray-400) !important;
+    border-color: var(--border-gray) !important;
+  }
+
+  /* Throbber/loading overlay (hardcoded white) */
+  .throbber {
+    background-color: var(--gray-300) !important;
+  }
+
+  /* ── Dashboard left panel ────────────────────────────────────────────── */
+  .dashboard__content-wrapper {
+    background-color: var(--white) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── Admin list/table pages ──────────────────────────────────────────── */
+  .AdminContent,
+  .AdminList,
+  .AdminForm,
+  .AdminPage {
+    background-color: var(--gray-200) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* Admin sidebar navigation */
+  .SideNavigation,
+  .AdminSideNavigation {
+    background-color: var(--gray-300) !important;
+
+    .SideNavigationItem {
+      color: var(--base-black) !important;
+
+      &:hover, &.active {
+        background-color: var(--gray-400) !important;
+      }
+    }
+  }
+
+  /* ── Modals ──────────────────────────────────────────────────────────── */
+  .modal,
+  .Modal,
+  .MuiModal-root .MuiPaper-root {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── Notification/maintenance banner ─────────────────────────────────── */
+  .NotificationMaintenance {
+    background-color: var(--gray-400) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── Login / SignUp page ─────────────────────────────────────────────── */
+  .LoginPage,
+  .SignUpPage {
+    background-color: var(--base-to-white-color) !important;
+
+    .LoginBox,
+    .SignUpBox {
+      background-color: var(--gray-300) !important;
+      color: var(--base-black) !important;
+    }
+  }
+
+  /* ── Help center ─────────────────────────────────────────────────────── */
+  .HelpCenter {
+    background-color: var(--gray-300) !important;
+    color: var(--base-black) !important;
+  }
+
+  /* ── Server table ────────────────────────────────────────────────────── */
+  .ServerTable {
+    background-color: var(--gray-200) !important;
+
+    .MuiDataGrid-virtualScrollerContent {
+      background-color: var(--gray-200) !important;
+    }
+  }
+}
+
+/* ── Dark mode toggle button ──────────────────────────────────────────── */
+.DarkModeToggle {
+  align-items: center;
+  background: transparent !important;
+  border: none !important;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin-right: 0.5rem;
+  padding: 0 6px !important;
+  transition: opacity 0.2s;
+
+  svg {
+    height: 18px;
+    width: 18px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

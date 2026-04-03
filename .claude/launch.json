@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dark-mode-demo",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "3333", "--directory", "/Users/ericchen/GeoSight-OS/.claude"],
+      "port": 3333
+    }
+  ]
+}
